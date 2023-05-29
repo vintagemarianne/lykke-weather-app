@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="src/styles.css" type="text/css">
+	<script src="https://kit.fontawesome.com/dd36ffd39a.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+	<title>Lykke Weather</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="current-weather-container">
+			<form class="flex-container">
+				<div class="search-input-container">
+					<i class="fa-solid fa-magnifying-glass search-icon"></i>
+					<input class="search-input" type="search" placeholder="Search for places..." name="search"
+						id="search-input">
+				</div>
+				<button type="submit" class="search-btn">
+					<i class="fa-solid fa-location-dot"></i>
+				</button>
+			</form>
+
+			<div class="current-weather-card">
+				<img class="current-weahter-img" src="images/cloudy.png" />
+				<div class="current-temp">
+					12°<span class="degree">c</span>
+				</div>
+				<div class="current-date-time">
+					Monday,
+					<span class="time-txt">16:00</span>
+				</div>
+			</div>
+
+			<div class="current-weather-box">
+				<i class="fa-solid fa-cloud current-weather-icon"></i>
+				Mostly cloudy
+			</div>
+
+			<div class="current-place-box">
+				<i class="fa-solid fa-location-dot location-icon"></i>
+				New York, NY, USA
+			</div>
+		</div>
+
+		<div class="week-forecast-container">
+			<h2 class="week-forecast-heading">Week forecast</h2>
+			<div class="forecast-list">
+				<div class="forecast-card">
+					<div class="forecast-day">Sun</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+				<div class="forecast-card current-card">
+					<div class="forecast-day">Mon</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+				<div class="forecast-card">
+					<div class="forecast-day">Tue</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+				<div class="forecast-card">
+					<div class="forecast-day">Wed</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+				<div class="forecast-card">
+					<div class="forecast-day">Thu</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+				<div class="forecast-card">
+					<div class="forecast-day">Fri</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+				<div class="forecast-card">
+					<div class="forecast-day">Sat</div>
+					<img class="forecast-icon" src="images/cloudy.png" />
+					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
