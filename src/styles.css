@@ -161,6 +161,8 @@ input {
 }
 
 .time-txt {
+  position: relative;
+  bottom: -2px;
   color: #dcf2ffab;
 }
 
