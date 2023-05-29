@@ -138,7 +138,7 @@ input {
   margin-bottom: 40px;
 }
 
-.current-temp {
+.current-temp-wrapper {
   position: relative;
   width: 100%;
   text-align: left;
@@ -147,10 +147,24 @@ input {
   color: #fff;
 }
 
-.current-temp .degree {
+.current-temp-wrapper .current-temp {
+  font-size: 64px;
+  color: #fff;
+}
+
+.current-temp-wrapper .temp-unit {
   position: absolute;
-  top: -12px;
-  font-size: 60px;
+  top: 0;
+  font-size: 40px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+.current-temp-wrapper .temp-unit:hover {
+  /* border-bottom: 3px solid #0000ac; */
+  color: #0000ac;
 }
 
 .current-date-time {
