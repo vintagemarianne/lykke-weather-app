@@ -15,12 +15,17 @@ input {
   font-family: "Itim", cursive;
 }
 
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
 .container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   max-width: 1140px !important;
   margin: 0 auto;
+  height: 100%;
 }
 
 .week-forecast-container {
@@ -92,7 +97,8 @@ input {
   cursor: pointer;
 }
 
-.current-weather-card {
+.current-weather-card,
+.no-city-card {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -103,6 +109,7 @@ input {
   background: radial-gradient(circle at 0% 0.5%, #92b5ff 0.1%, #6497ff 100.2%);
   box-shadow: 0 0.125rem 0.25rem #92b5ff !important;
   margin-bottom: 16px;
+  color: #fff;
 }
 
 .current-weather-box {
@@ -117,6 +124,7 @@ input {
   background: radial-gradient(circle at 0% 0.5%, #f99ac0 0.1%, #fe649d 100.2%);
   box-shadow: 0 0.125rem 0.25rem #f99ac0 !important;
   margin-bottom: 16px;
+  text-transform: capitalize;
 }
 
 .current-place-box {

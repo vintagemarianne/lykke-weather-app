@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="src/styles.css" type="text/css">
 	<script src="https://kit.fontawesome.com/dd36ffd39a.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
@@ -27,27 +28,33 @@
 				</button>
 			</form>
 
-			<div class="current-weather-card">
-				<img class="current-weahter-img" src="images/cloudy.png" />
-				<div class="current-temp-wrapper">
-					<span class="current-temp" id="current-temp">12</span>
-					°
-					<button class="temp-unit" id="temp-unit-btn" title="Change unit">C</button>
+			<div id="city-info-container">
+				<div class="current-weather-card">
+					<img id="" class="current-weahter-img" />
+					<div class="current-temp-wrapper">
+						<span class="current-temp" id="current-temp"></span>
+						°
+						<button class="temp-unit" id="temp-unit-btn" title="Change unit">C</button>
+					</div>
+					<div class="current-date-time">
+						<span id="current-day-of-week">Monday,</span>
+						<span class="time-txt" id="current-time">16:00</span>
+					</div>
 				</div>
-				<div class="current-date-time">
-					<span id="current-day-of-week">Monday,</span>
-					<span class="time-txt" id="current-time">16:00</span>
+
+				<div class="current-weather-box">
+					<i class="fa-solid fa-cloud current-weather-icon"></i>
+					<span id="weather-desc"></span>
+				</div>
+
+				<div class="current-place-box">
+					<i class="fa-solid fa-location-dot location-icon"></i>
+					<span id="city-name"></span>
 				</div>
 			</div>
 
-			<div class="current-weather-box">
-				<i class="fa-solid fa-cloud current-weather-icon"></i>
-				Mostly cloudy
-			</div>
-
-			<div class="current-place-box">
-				<i class="fa-solid fa-location-dot location-icon"></i>
-				<span id="city-name">New York, NY, USA</span>
+			<div id="no-city-card" class="no-city-card">
+				Nothing has been searched!
 			</div>
 		</div>
 
