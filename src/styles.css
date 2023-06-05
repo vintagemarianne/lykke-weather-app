@@ -266,8 +266,11 @@ input:-internal-autofill-selected {
 }
 
 footer {
+  display: block;
   width: 100%;
+  max-width: 1140px !important;
   padding: 4px;
+  margin: 0 auto;
   box-sizing: border-box;
   text-align: center;
   background-color: #f1eded;
