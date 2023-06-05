@@ -265,6 +265,14 @@ input:-internal-autofill-selected {
   color: #fff;
 }
 
+footer {
+  width: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #f1eded;
+}
+
 @media all and (max-width: 768px) {
   .container {
     flex-flow: column nowrap;
