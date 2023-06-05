@@ -25,7 +25,7 @@ input:-internal-autofill-selected {
   justify-content: center;
   max-width: 1140px !important;
   margin: 0 auto;
-  height: 100%;
+  min-height: 100%;
 }
 
 .week-forecast-container {
@@ -95,6 +95,13 @@ input:-internal-autofill-selected {
 
 .search-btn:hover {
   cursor: pointer;
+}
+
+.city-info-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .current-weather-card,

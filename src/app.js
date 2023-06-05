@@ -50,6 +50,7 @@ function searchCity(event) {
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`)
     .then(showCityInfo)
     .catch(function (error) {
+      console.log(error);
       alert(error.response.data.message);
       _elements.searchInput.value = null;
       _elements.cityInfoContainer.style.display = "none";
@@ -58,7 +59,7 @@ function searchCity(event) {
 }
 
 function showCityInfo(response) {
-  _elements.cityInfoContainer.style.display = "block";
+  _elements.cityInfoContainer.style.display = "flex";
   _elements.noCityCard.style.display = "none";
   currentTemp = Math.round(response.data.main.temp);
   _elements.currentTemp.innerHTML = currentTemp;
