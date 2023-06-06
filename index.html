@@ -16,19 +16,19 @@
 
 <body>
 	<div class="container">
-		<div class="current-weather-container">
-			<form class="flex-container">
-				<div class="search-input-container">
-					<i class="fa-solid fa-magnifying-glass search-icon"></i>
-					<input class="search-input" type="search" placeholder="Search for places..." name="search"
-						id="search-input">
-				</div>
-				<button type="submit" class="search-btn" id="search-btn">
-					<i class="fa-solid fa-location-dot"></i>
-				</button>
-			</form>
-
-			<div class="city-info-container" id="city-info-container">
+		<h1 class="main-heading">Lykke with Weather 🏖</h1>
+		<form class="flex-container">
+			<div class="search-input-container">
+				<i class="fa-solid fa-magnifying-glass search-icon"></i>
+				<input class="search-input" type="search" placeholder="Search for places..." name="search"
+					id="search-input">
+			</div>
+			<button type="submit" class="search-btn" id="search-btn">
+				<i class="fa-solid fa-location-dot"></i>
+			</button>
+		</form>
+		<div class="weather-result-container" id="weather-result-container">
+			<div class="city-info-container">
 				<div class="current-weather-card">
 					<img id="current-weahter-icon" class="current-weahter-img" />
 					<div class="current-temp-wrapper">
@@ -42,24 +42,24 @@
 					</div>
 				</div>
 
-				<div class="current-weather-box">
-					<i class="fa-solid fa-cloud current-weather-icon"></i>
-					<span id="weather-desc"></span>
-				</div>
+				<div class="row-container">
+					<div class="current-wind-box">
+						<i class='fa-solid fa-wind'></i>
+						<span></span>
+					</div>
 
-				<div class="current-place-box">
-					<i class="fa-solid fa-location-dot location-icon"></i>
-					<span id="city-name"></span>
+					<div class="current-weather-box">
+						<i class="fa-solid fa-cloud current-weather-icon"></i>
+						<span id="weather-desc"></span>
+					</div>
+
+					<div class="current-place-box">
+						<i class="fa-solid fa-location-dot location-icon"></i>
+						<span id="city-name"></span>
+					</div>
 				</div>
 			</div>
 
-			<div id="no-city-card" class="no-city-card">
-				Nothing has been searched!
-			</div>
-		</div>
-
-		<div class="week-forecast-container">
-			<h2 class="week-forecast-heading">Week forecast</h2>
 			<div class="forecast-list">
 				<div class="forecast-card">
 					<div class="forecast-day">Sun</div>
@@ -86,24 +86,18 @@
 					<img class="forecast-icon" src="images/cloudy.png" />
 					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
 				</div>
-				<div class="forecast-card">
-					<div class="forecast-day">Fri</div>
-					<img class="forecast-icon" src="images/cloudy.png" />
-					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
-				</div>
-				<div class="forecast-card">
-					<div class="forecast-day">Sat</div>
-					<img class="forecast-icon" src="images/cloudy.png" />
-					<div class="forecast-temp">12° <span class="lower-temp"> -3°</span></div>
-				</div>
 			</div>
 		</div>
+		<div id="empty-state" class="empty-state">
+			No results yet.
+		</div>
+
+		<footer>
+			<i class="fa fa-github" aria-hidden="true"></i>
+			Developed by
+			<a href="https://github.com/maryamhdr/lykke-weather-app">MaryamHdr</a>
+		</footer>
 	</div>
-	<footer>
-		<i class="fa fa-github" aria-hidden="true"></i>
-		Get source code from
-		<a href="https://github.com/maryamhdr/lykke-weather-app">GitHub</a>
-	</footer>
 	<script src="./src/app.js"></script>
 </body>
 

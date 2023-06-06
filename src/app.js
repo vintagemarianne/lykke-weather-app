@@ -11,17 +11,16 @@ let el = document.querySelector.bind(document),
     cityName: el("#city-name"),
     tempUnitBtn: el("#temp-unit-btn"),
     currentTemp: el("#current-temp"),
-    cityInfoContainer: el("#city-info-container"),
+    weatherResultContainer: el("#weather-result-container"),
     weatherDesc: el("#weather-desc"),
     currentWeatherIcon: el("#current-weahter-icon"),
-    noCityCard: el("#no-city-card")
+    emptyState: el("#empty-state")
   };
 
 let currentDate = new Date();
 
 _elements.searchBtn.addEventListener("click", searchCity);
 // _elements.tempUnitBtn.addEventListener("click", changeUnit);
-_elements.cityInfoContainer.style.display = "none";
 
 function formatDate(date) {
   let daysOfWeek = [
@@ -42,8 +41,8 @@ function searchCity(event) {
   event.preventDefault();
   cityName = _elements.searchInput.value;
   if (cityName === null) {
-    _elements.cityInfoContainer.style.display = "none";
-    _elements.noCityCard.style.display = "block";
+    _elements.weatherResultContainer.style.display = "none";
+    _elements.emptyState.style.display = "flex";
     return;
   }
 
@@ -53,14 +52,14 @@ function searchCity(event) {
       console.log(error);
       alert(error.response.data.message);
       _elements.searchInput.value = null;
-      _elements.cityInfoContainer.style.display = "none";
-      _elements.noCityCard.style.display = "block";
+      _elements.weatherResultContainer.style.display = "none";
+      _elements.emptyState.style.display = "flex";
     });
 }
 
 function showCityInfo(response) {
-  _elements.cityInfoContainer.style.display = "flex";
-  _elements.noCityCard.style.display = "none";
+  _elements.weatherResultContainer.style.display = "flex";
+  _elements.emptyState.style.display = "none";
   currentTemp = Math.round(response.data.main.temp);
   _elements.currentTemp.innerHTML = currentTemp;
   cityName = response.data.name;
