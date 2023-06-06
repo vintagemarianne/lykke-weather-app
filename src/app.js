@@ -65,9 +65,10 @@ function showCityInfo(response) {
   cityName = response.data.city;
   _elements.cityName.innerHTML = `${cityName}, ${response.data.country}`;
   _elements.currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
-  _elements.currentWeatherIcon.src = response.data.condition.icon_url;
   _elements.currentWind.innerHTML = `${response.data.wind.speed} Km/H`;
   _elements.currentWeatherDesc.innerHTML = `${response.data.condition.description}`;
+  _elements.currentWeatherIcon.setAttribute("src", response.data.condition.icon_url);
+  _elements.currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
   formatDate(response.data.time);
 }
 
