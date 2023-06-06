@@ -32,9 +32,11 @@
 				<div class="current-weather-card">
 					<img id="current-weahter-icon" class="current-weahter-img" />
 					<div class="current-temp-wrapper">
-						<span class="current-temp" id="current-temp"></span>
-						°
-						<button class="temp-unit" id="temp-unit-btn" title="Change unit">C</button>
+						<span class="current-temp" id="current-temp">
+							°
+							<button class="temp-unit" id="temp-unit-btn" title="Change unit">C</button>
+						</span>
+						<span class="current-weather-desc" id="current-weather-desc"></span>
 					</div>
 					<div class="current-date-time">
 						<span id="current-day-of-week">Monday,</span>
@@ -44,13 +46,13 @@
 
 				<div class="row-container">
 					<div class="current-wind-box">
-						<i class='fa-solid fa-wind'></i>
-						<span></span>
+						<i class="fa-solid fa-wind wind-icon"></i>
+						<span id="current-wind" title="wind-speed"></span>
 					</div>
 
-					<div class="current-weather-box">
-						<i class="fa-solid fa-cloud current-weather-icon"></i>
-						<span id="weather-desc"></span>
+					<div class="current-humidity-box">
+						<i class="fa-solid fa-water water-icon"></i>
+						<span id="current-humidity" title="humidity"></span>
 					</div>
 
 					<div class="current-place-box">

@@ -146,7 +146,7 @@ input:-internal-autofill-selected {
   width: 50%;
 }
 
-.current-weather-box {
+.current-humidity-box {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -207,13 +207,20 @@ input:-internal-autofill-selected {
 }
 
 .current-temp-wrapper .current-temp {
+  position: relative;
   font-size: 32px;
+  color: #fff;
+}
+
+.current-temp-wrapper .current-weather-desc {
+  font-size: 24px;
   color: #fff;
 }
 
 .current-temp-wrapper .temp-unit {
   position: absolute;
-  top: 0;
+  top: -7px;
+  right: -10px;
   font-size: 24px;
   background-color: transparent;
   cursor: pointer;
@@ -247,12 +254,13 @@ input:-internal-autofill-selected {
   color: #fff;
 }
 
-.current-weather-icon {
+.water-icon {
   color: #fff;
   margin-right: 8px;
 }
 
-.location-icon {
+.location-icon,
+.wind-icon {
   margin-right: 8px;
 }
 
