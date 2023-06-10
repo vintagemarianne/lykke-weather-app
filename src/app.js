@@ -1,7 +1,7 @@
 let el = document.querySelector.bind(document),
   isCurrentTempUnitCelsius = true,
   apiKey = "097cb4o302a7bf9c0ffe72t43bdface5",
-  currentTemp = 0,
+  celsiusTemp = 0,
   cityName = null,
   _elements = {
     currentDayOfWeek: el("#current-day-of-week"),
@@ -20,7 +20,7 @@ let el = document.querySelector.bind(document),
   };
 
 _elements.searchBtn.addEventListener("click", searchCity);
-// _elements.tempUnitBtn.addEventListener("click", changeUnit);
+_elements.tempUnitBtn.addEventListener("click", changeUnit);
 
 function formatDate(timestamp) {
   let daysOfWeek = [
@@ -58,32 +58,29 @@ function searchCity(event) {
 }
 
 function showCityInfo(response) {
+  celsiusTemp = response.data.temperature.current;
+  cityName = response.data.city;
+  formatDate(response.data.time);
   _elements.weatherResultContainer.style.display = "flex";
   _elements.emptyState.style.display = "none";
-  currentTemp = Math.round(response.data.temperature.current);
-  _elements.currentTemp.innerHTML = `${currentTemp} °<button class="temp-unit" id="temp-unit-btn" title="Change unit">C</button>      ,`;
-  cityName = response.data.city;
+  _elements.currentTemp.innerHTML = Math.round(celsiusTemp);
   _elements.cityName.innerHTML = `${cityName}, ${response.data.country}`;
   _elements.currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
   _elements.currentWind.innerHTML = `${response.data.wind.speed} Km/H`;
-  _elements.currentWeatherDesc.innerHTML = `${response.data.condition.description}`;
+  _elements.currentWeatherDesc.innerHTML = `, ${response.data.condition.description}`;
   _elements.currentWeatherIcon.setAttribute("src", response.data.condition.icon_url);
   _elements.currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
-  formatDate(response.data.time);
 }
 
 function changeUnit(event) {
   event.preventDefault();
-  currentTemp = _elements.currentTemp.innerHTML;
-
   if (isCurrentTempUnitCelsius) {
     _elements.tempUnitBtn.innerHTML = "F";
-    currentTemp = currentTemp * 1.8 + 32;
+    _elements.currentTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
   } else {
     _elements.tempUnitBtn.innerHTML = "C";
-    currentTemp = (currentTemp - 32) / 1.8;
+    _elements.currentTemp.innerHTML = Math.round(celsiusTemp);
   }
 
-  _elements.currentTemp.innerHTML = currentTemp;
   isCurrentTempUnitCelsius = !isCurrentTempUnitCelsius;
 }

@@ -74,7 +74,6 @@ input:-internal-autofill-selected {
   align-items: center;
   gap: 16px;
   width: 100%;
-  /* max-width: 316px; */
   margin-bottom: 32px;
 }
 
@@ -208,6 +207,7 @@ input:-internal-autofill-selected {
 
 .current-temp-wrapper .current-temp {
   position: relative;
+  margin-right: 16px;
   font-size: 32px;
   color: #fff;
 }
@@ -220,7 +220,7 @@ input:-internal-autofill-selected {
 .current-temp-wrapper .temp-unit {
   position: absolute;
   top: -7px;
-  right: -10px;
+  right: -20px;
   font-size: 24px;
   background-color: transparent;
   cursor: pointer;
@@ -229,7 +229,6 @@ input:-internal-autofill-selected {
 }
 
 .current-temp-wrapper .temp-unit:hover {
-  /* border-bottom: 3px solid #0000ac; */
   color: #0000ac;
 }
 
@@ -267,7 +266,7 @@ input:-internal-autofill-selected {
 .forecast-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
   width: 100%;
 }
@@ -277,7 +276,9 @@ input:-internal-autofill-selected {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  width: 120px;
+  flex: 1;
+  min-width: 120px;
+  max-width: 128px;
   padding: 16px 0;
   border-radius: 16px;
   box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.13),
