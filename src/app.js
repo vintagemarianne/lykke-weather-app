@@ -16,7 +16,8 @@ let el = document.querySelector.bind(document),
     currentHumidity: el("#current-humidity"),
     currentWind: el("#current-wind"),
     currentWeatherIcon: el("#current-weahter-icon"),
-    emptyState: el("#empty-state")
+    emptyState: el("#empty-state"),
+    forecastList: el("#forecast-list")
   };
 
 _elements.searchBtn.addEventListener("click", searchCity);
@@ -48,16 +49,23 @@ function searchCity(event) {
   }
 
   axios.get(`https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}&units=metric`)
-    .then(showCityInfo)
+    .then(displayTemperature)
     .catch(function (error) {
       alert(error.response.data.message);
       _elements.searchInput.value = null;
       _elements.weatherResultContainer.style.display = "none";
       _elements.emptyState.style.display = "flex";
     });
+
+  axios.get(`https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}&units=metric`)
+    .then(displayForecast)
+    .catch(function (error) {
+      alert(error.response.data.message);
+      _elements.forecastList.innerHTML = "";
+    });
 }
 
-function showCityInfo(response) {
+function displayTemperature(response) {
   celsiusTemp = response.data.temperature.current;
   cityName = response.data.city;
   formatDate(response.data.time);
@@ -70,6 +78,38 @@ function showCityInfo(response) {
   _elements.currentWeatherDesc.innerHTML = `, ${response.data.condition.description}`;
   _elements.currentWeatherIcon.setAttribute("src", response.data.condition.icon_url);
   _elements.currentWeatherIcon.setAttribute("alt", response.data.condition.icon);
+}
+
+function displayForecast(response) {
+  _elements.forecastList.innerHTML = "";
+  let forecast = response.data.daily;
+  let daysOfWeek = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+
+  forecast.forEach(function (day, index) {
+    if (index > 4) return;
+
+    let date = new Date(day.time * 1000);
+    let dayTemplate = `
+      <div class="forecast-card">
+        <div class="forecast-day">${daysOfWeek[date.getDay()]}</div>
+        <img class="forecast-icon" src="${day.condition.icon_url}" alt="${day.condition.icon}"/>
+        <div class="forecast-temp">
+          <span class="max-temp">${Math.round(day.temperature.maximum)}°</span>
+          <span class="min-temp">${Math.round(day.temperature.minimum)}°</span>
+        </div>
+      </div>
+    `;
+
+    _elements.forecastList.innerHTML += dayTemplate;
+  });
 }
 
 function changeUnit(event) {
